@@ -1,12 +1,18 @@
-import { Connection, createConnection, getConnectionOptions } from "typeorm";
+import { DataSource } from 'typeorm';
+import 'dotenv/config';
 
-export default async (host = "database"): Promise<Connection> => {
-    const defaultOptions = await getConnectionOptions();
-
-    return createConnection(
-        Object.assign(defaultOptions, {
-            host: host,
-            database: defaultOptions.database,
-        })
-    );
-};
+export const dataSource = new DataSource({
+  name: 'default',
+  schema: 'public',
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'postgres',
+  password: 'agro123',
+  database: 'postgres',
+  synchronize: false,
+  logging: false,
+  migrationsTableName: 'migration',
+  entities: ['src/**/**/infra/typeorm/entities/*.ts'],
+  migrations: ['src/shared/infra/typeorm/migrations/*.ts']
+});

@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-@Entity('Productos')
+@Entity('productos')
 export class Productos {
     @PrimaryColumn()
     id: string;
