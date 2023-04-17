@@ -1,4 +1,4 @@
-import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
+import { ICreateUserDTO } from "../dtos/IUserDTO";
 
 export class CreateUserService {
     constructor() {}
