@@ -5,4 +5,6 @@ export interface IProductosRepository {
     create(data: IProductosDTO): Promise<void>;
     findAllProductos(): Promise<Productos[]>;
     findById(id: string): Promise<Productos>;
+    deleteById(id: string): Promise<void>;
+    update(productos: Productos): Promise<void>;
 }

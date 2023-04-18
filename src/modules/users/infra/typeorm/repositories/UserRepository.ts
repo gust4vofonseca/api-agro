@@ -33,4 +33,12 @@ export class UserRepository implements IUserRepository {
         const user = await this.ormRepository.findOneBy({id});
         return user;
     }
+
+    async deleteById(id: string): Promise<void> {
+        await this.ormRepository.delete({id});
+    }
+
+    async update(user: User): Promise<void> {
+        await this.ormRepository.save(user);
+    }
 }

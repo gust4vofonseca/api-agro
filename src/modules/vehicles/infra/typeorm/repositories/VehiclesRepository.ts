@@ -11,6 +11,7 @@ export class VehiclesRepository implements IVehiclesRepository {
       this.ormRepository = dataSource.getRepository(Vehicles);
     }
 
+
     async create({maximum_km, maximum_weight, minimum_km, minimum_weight, name, price_per_km, id}: IVehiclesDTO): Promise<void> {
         const vehicles = this.ormRepository.create({
             name,
@@ -31,6 +32,14 @@ export class VehiclesRepository implements IVehiclesRepository {
     
     async findAll(): Promise<Vehicles[]> {
         return await this.ormRepository.find();
+    }
+
+    async deleteById(id: string): Promise<void> {
+        await this.ormRepository.delete({id});
+    }
+
+    async update(vehicles: Vehicles): Promise<void> {
+        await this.ormRepository.save(vehicles);
     }
 
 }

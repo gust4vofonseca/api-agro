@@ -30,4 +30,12 @@ export class ProductosRepository implements IProductosRepository {
     async findById(id: string): Promise<Productos> {
         return await this.ormRepository.findOneBy({id});
     }
+
+    async deleteById(id: string): Promise<void> {
+        await this.ormRepository.delete({id});
+    }
+
+    async update(productos: Productos): Promise<void> {
+        await this.ormRepository.save(productos);
+    }
 }
