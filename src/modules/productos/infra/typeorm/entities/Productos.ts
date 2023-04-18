@@ -9,13 +9,13 @@ export class Productos {
     @Column()
     name: string;
 
-    @Column()
+    @Column({type: "float"})
     weight: number;
 
-    @Column()
+    @Column({type: "float"})
     cost_value: number;
 
-    @Column()
+    @Column({type: "float"})
     sale_value: number;
 
     @CreateDateColumn()

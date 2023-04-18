@@ -9,10 +9,10 @@ export class Vehicles {
     @Column()
     name: string;
 
-    @Column()
+    @Column({type: "float"})
     minimum_weight: number;
 
-    @Column()
+    @Column({type: "float"})
     maximum_weight: number;
 
     @Column()
@@ -21,7 +21,7 @@ export class Vehicles {
     @Column()
     maximum_km: number;
 
-    @Column()
+    @Column({type: "float"})
     price_per_km: number;
 
     @CreateDateColumn()

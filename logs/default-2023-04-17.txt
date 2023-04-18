@@ -1,0 +1,10 @@
+time: 21:27:34.242Z
+status: 500
+module: default
+message: {"query":"INSERT INTO \"public\".\"vehicles\"(\"id\", \"name\", \"minimum_weight\", \"maximum_weight\", \"minimum_km\", \"maximum_km\", \"price_per_km\", \"created_at\", \"updated_at\") VALUES ($1, $2, $3, $4, $5, $6, $7, DEFAULT, DEFAULT) RETURNING \"created_at\", \"updated_at\"","parameters":["ed409471-dba2-4ee8-8fe7-3c01ce52f1c0","moto","150","50","0","1000","2.5"],"driverError":{"length":141,"name":"error","severity":"ERROR","code":"22P02","where":"unnamed portal parameter $7 = '...'","file":"numutils.c","line":"232","routine":"pg_strtoint32"},"length":141,"severity":"ERROR","code":"22P02","where":"unnamed portal parameter $7 = '...'","file":"numutils.c","line":"232","routine":"pg_strtoint32"}
+
+time: 21:28:04.757Z
+status: 500
+module: default
+message: {"query":"INSERT INTO \"public\".\"vehicles\"(\"id\", \"name\", \"minimum_weight\", \"maximum_weight\", \"minimum_km\", \"maximum_km\", \"price_per_km\", \"created_at\", \"updated_at\") VALUES ($1, $2, $3, $4, $5, $6, $7, DEFAULT, DEFAULT) RETURNING \"created_at\", \"updated_at\"","parameters":["d182e843-a9cb-49e4-8837-c2c51d8659f2","moto","150","50","0","1000","2.5"],"driverError":{"length":141,"name":"error","severity":"ERROR","code":"22P02","where":"unnamed portal parameter $7 = '...'","file":"numutils.c","line":"232","routine":"pg_strtoint32"},"length":141,"severity":"ERROR","code":"22P02","where":"unnamed portal parameter $7 = '...'","file":"numutils.c","line":"232","routine":"pg_strtoint32"}
+

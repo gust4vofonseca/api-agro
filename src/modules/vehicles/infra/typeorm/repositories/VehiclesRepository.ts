@@ -15,7 +15,6 @@ export class VehiclesRepository implements IVehiclesRepository {
     async create({maximum_km, maximum_weight, minimum_km, minimum_weight, name, price_per_km, id}: IVehiclesDTO): Promise<void> {
         const vehicles = this.ormRepository.create({
             name,
-            id,
             maximum_km,
             maximum_weight,
             minimum_km,
