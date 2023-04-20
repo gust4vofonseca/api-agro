@@ -2,7 +2,7 @@ import { inject, injectable } from "tsyringe";
 import { IVehiclesRepository } from "../infra/repositories/IVehiclesRepository";
 import { IProductosRepository } from "@modules/productos/infra/repositories/IProductosRepository";
 import { IRequestFreightDTO } from "../dtos/IRequestFreightDTO";
-import { IResponseFreightDTO } from "../dtos/IResponseFreightDTO";
+import { IResponseFreightDTO, IVehiclesFreigth } from "../dtos/IResponseFreightDTO";
 
 
 @injectable()
@@ -15,7 +15,7 @@ export class FreightService {
         private productosRepository: IProductosRepository,
       ) {}
     
-    async execute({km, products}: IRequestFreightDTO): Promise<IResponseFreightDTO[]> {
+    async execute({km, products}: IRequestFreightDTO): Promise<IResponseFreightDTO> {
         try {
             let totalSaleValue = 0;
             let totalCostAmount = 0;
@@ -31,7 +31,7 @@ export class FreightService {
 
             const allVehicles = await this.vehiclesRepository.findAll();
 
-            let vehiclesSelected: IResponseFreightDTO[] = [];
+            let vehiclesSelected: IVehiclesFreigth[] = [];
 
             for (const vehicle of allVehicles) {
                 
@@ -78,7 +78,13 @@ export class FreightService {
                 return 0;
             })
 
-            return vehiclesSelected;
+            const response: IResponseFreightDTO ={
+                vehicles: vehiclesSelected,
+                totalSaleValue,
+                totalWeight,
+            }
+
+            return response;
         } catch (error) {
                 console.log({error})
                 return undefined
