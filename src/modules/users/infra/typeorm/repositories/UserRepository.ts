@@ -12,12 +12,11 @@ export class UserRepository implements IUserRepository {
       this.ormRepository = dataSource.getRepository(User);
     }
 
-    async create({name, email, isAdmin=true, password, id}: IUserDTO): Promise<void> {
+    async create({name, email, isAdmin=true, password}: IUserDTO): Promise<void> {
         const user = this.ormRepository.create({
             name,
             password,
             email,
-            id,
             isAdmin,
         });
 
