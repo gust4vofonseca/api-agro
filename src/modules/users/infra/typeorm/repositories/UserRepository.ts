@@ -12,7 +12,7 @@ export class UserRepository implements IUserRepository {
       this.ormRepository = dataSource.getRepository(User);
     }
 
-    async create({name, email, isAdmin=true, password}: IUserDTO): Promise<void> {
+    async create({name, email, isAdmin, password}: IUserDTO): Promise<void> {
         const user = this.ormRepository.create({
             name,
             password,
@@ -24,8 +24,13 @@ export class UserRepository implements IUserRepository {
     }
 
     async findByEmail(email: string): Promise<User> {
-        const user = await this.ormRepository.findOneBy({ email });
-        return user;
+        try {
+            const [user] = await this.ormRepository.findBy({ email });
+            return user;
+        } catch (error) {
+            console.log({error})
+        }
+
     }
 
     async findById(id: string): Promise<User> {
