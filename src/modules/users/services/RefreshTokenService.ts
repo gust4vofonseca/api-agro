@@ -7,26 +7,35 @@ import auth from "@config/auth";
 // import { AppError } from "@shared/errors/AppError";
 import { IUserTokensRepository } from "../infra/repositories/IUserTokensRepository";
 import { IDateProvider } from "@shared/providers/DateProvider/IDateProvider";
+import { IUserRepository } from "../infra/repositories/IUserRepository";
 
 interface IPayload {
     sub: string;
     email: string;
 }
 
-interface ITokenResponse {
+interface IResponse {
+    user: {
+        name: string;
+        email: string;
+        isAdmin: boolean;
+    };
     token: string;
     refresh_token: string;
 }
+
 
 @injectable()
 export class RefreshTokenService {
     constructor(
         @inject("UserTokensRepository")
         private userTokensRepository: IUserTokensRepository,
-        @inject("DayjsDateProvider")
-        private dayjsDateProvider: IDateProvider
+        @inject("DateProvider")
+        private dayjsDateProvider: IDateProvider,
+        @inject("UserRepository")
+        private userRepository: IUserRepository,
     ) {}
-    async execute(token: string): Promise<ITokenResponse> {
+    async execute(token: string): Promise<IResponse> {
         const { email, sub } = verify(
             token,
             auth.secret_refresh_token
@@ -42,7 +51,6 @@ export class RefreshTokenService {
 
         if (!userToken) {
             return;
-            // throw new AppError("Refresh token does not exists!");
         }
 
         await this.userTokensRepository.deleteById(userToken.id);
@@ -67,6 +75,18 @@ export class RefreshTokenService {
             expiresIn: auth.expires_in_token,
         });
 
-        return { refresh_token, token: newToken };
+        const user = await this.userRepository.findById(user_id)
+
+        const RefreshtokenReturn: IResponse = {
+            token: newToken,
+            user: {
+                name: user.name,
+                email: user.email,
+                isAdmin: user.isAdmin,
+            },
+            refresh_token,
+        };
+
+        return RefreshtokenReturn;
     }
 }

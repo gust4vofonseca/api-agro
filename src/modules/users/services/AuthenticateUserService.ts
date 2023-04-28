@@ -35,10 +35,7 @@ export class AuthenticateUserService {
     ) {}
 
     async execute({ email, password }: IRquest): Promise<IResponse> {
-        console.log("Aqui")
         const user = await this.userRepository.findByEmail(email);
-
-        console.log({user})
 
         if (!user) {
             return;
@@ -46,8 +43,6 @@ export class AuthenticateUserService {
         }
 
         const passwordMatch = await compare(password, user.password);
-
-        console.log({passwordMatch})
 
         if (!passwordMatch) {
             return;
@@ -59,20 +54,14 @@ export class AuthenticateUserService {
             expiresIn: auth.expires_in_token,
         });
 
-        console.log({token})
-
         const refresh_token = sign({ email }, auth.secret_refresh_token, {
             subject: user.id,
             expiresIn: auth.expires_in_refresh_token,
         });
 
-        console.log({refresh_token})
-
         const refresh_token_expires_date = this.dayjsDateProvider.addDays(
             auth.expires_refresh_token_days
         );
-
-        console.log({refresh_token_expires_date})
 
         await this.userTokensRepository.create({
             expires_date: refresh_token_expires_date,
@@ -89,8 +78,6 @@ export class AuthenticateUserService {
             },
             refresh_token,
         };
-
-        console.log({tokenReturn})
 
         return tokenReturn;
     }
