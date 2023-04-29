@@ -9,6 +9,8 @@ export class FreightController {
             km
         } = request.body;
 
+        console.log({km, products})
+
         const freightService = container.resolve(FreightService);
 
         const data = await freightService.execute({products, km});
