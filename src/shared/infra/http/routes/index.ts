@@ -7,7 +7,7 @@ import { Router } from 'express';
 const router = Router();
 
 router.use('/vehicles', vehiclesRouter);
-router.use('/productos', productosRouter);
+router.use('/products', productosRouter);
 router.use('/user', userRouter);
 
 export default router;

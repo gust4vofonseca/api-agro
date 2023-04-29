@@ -6,7 +6,7 @@ export class ListAllProductosController {
     async handle(request: Request, response: Response): Promise<Response> {
         const listAllProductosService = container.resolve(ListAllProductosService);
 
-        const data = await listAllProductosService.execute()
+        const data = await listAllProductosService.execute();
 
         return response.json(data);
     }
