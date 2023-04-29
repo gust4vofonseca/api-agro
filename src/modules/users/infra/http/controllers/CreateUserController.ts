@@ -11,11 +11,6 @@ export class CreateUserController {
             isAdmin
         } = request.body;
 
-        console.log({            name,
-            email,
-            password,
-            isAdmin});
-
         const createUserService = container.resolve(CreateUserService);
 
         await createUserService.execute({

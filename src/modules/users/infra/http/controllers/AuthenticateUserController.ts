@@ -6,7 +6,6 @@ import { container } from "tsyringe";
 export class AuthenticateUserController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { email, password } = request.body;
-        console.log({ email, password })
 
         const authenticateUserService= container.resolve(
             AuthenticateUserService

@@ -5,20 +5,12 @@ import { container } from "tsyringe";
 
 export class RefreshTokenController {
     async handle(request: Request, response: Response): Promise<Response> {
-        try {
-            
-
-        console.log('aqui')
         const { token } =  request.body;
-        console.log({token})
 
         const refreshTokenService = container.resolve(RefreshTokenService);
 
         const refreshToken = await refreshTokenService.execute(token);
 
         return response.json(refreshToken);
-    } catch (error) {
-            console.log({error});
-    }
     }
 }
