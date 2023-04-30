@@ -1,0 +1,10 @@
+time: 16:15:58.323Z
+status: 500
+module: default
+message: {"query":"INSERT INTO \"public\".\"productos\"(\"id\", \"name\", \"weight\", \"cost_value\", \"sale_value\", \"created_at\", \"updated_at\") VALUES ($1, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT) RETURNING \"created_at\", \"updated_at\"","parameters":["2dd64edc-f11c-4a6c-a23c-0077d45f8223"],"driverError":{"length":310,"name":"error","severity":"ERROR","code":"23502","detail":"Failing row contains (2dd64edc-f11c-4a6c-a23c-0077d45f8223, null, null, null, null, 2023-04-30 19:15:58.318377, 2023-04-30 19:15:58.318377).","schema":"public","table":"productos","column":"name","file":"execMain.c","line":"1968","routine":"ExecConstraints"},"length":310,"severity":"ERROR","code":"23502","detail":"Failing row contains (2dd64edc-f11c-4a6c-a23c-0077d45f8223, null, null, null, null, 2023-04-30 19:15:58.318377, 2023-04-30 19:15:58.318377).","schema":"public","table":"productos","column":"name","file":"execMain.c","line":"1968","routine":"ExecConstraints"}
+
+time: 16:17:23.210Z
+status: 500
+module: default
+message: {"query":"INSERT INTO \"public\".\"productos\"(\"id\", \"name\", \"weight\", \"cost_value\", \"sale_value\", \"created_at\", \"updated_at\") VALUES ($1, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT) RETURNING \"created_at\", \"updated_at\"","parameters":["096ca75b-cc60-4f47-950c-3a891a5ffc41"],"driverError":{"length":310,"name":"error","severity":"ERROR","code":"23502","detail":"Failing row contains (096ca75b-cc60-4f47-950c-3a891a5ffc41, null, null, null, null, 2023-04-30 19:17:23.208415, 2023-04-30 19:17:23.208415).","schema":"public","table":"productos","column":"name","file":"execMain.c","line":"1968","routine":"ExecConstraints"},"length":310,"severity":"ERROR","code":"23502","detail":"Failing row contains (096ca75b-cc60-4f47-950c-3a891a5ffc41, null, null, null, null, 2023-04-30 19:17:23.208415, 2023-04-30 19:17:23.208415).","schema":"public","table":"productos","column":"name","file":"execMain.c","line":"1968","routine":"ExecConstraints"}
+

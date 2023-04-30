@@ -10,6 +10,20 @@ export class ListAllVehiclesService {
       ) {}
 
     async execute(): Promise<Vehicles[]> {
-        return await this.vehiclesRepository.findAll()
+        const data =  await this.vehiclesRepository.findAll()
+
+        data.sort((a, b) => {
+            if(a.name.toUpperCase() < b.name.toUpperCase() ) {
+                return -1;
+            } 
+            if (a.name.toUpperCase()  > b.name.toUpperCase() ) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+
+        return data;
     }
 }

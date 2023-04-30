@@ -2,7 +2,7 @@ import { DeleteUserService } from "@modules/users/services/DeleteUserService";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-export class DeletePUserController {
+export class DeleteUserController {
     async handle(request: Request, response: Response): Promise<Response> {
         const {
             id

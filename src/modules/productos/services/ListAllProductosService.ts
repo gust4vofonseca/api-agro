@@ -11,6 +11,19 @@ export class ListAllProductosService {
 
 
     async execute(): Promise<Productos[]> {
-        return await this.productosRepository.findAllProductos();
+        const data = await this.productosRepository.findAllProductos();
+
+        data.sort((a, b) => {
+            if(a.name.toUpperCase() < b.name.toUpperCase() ) {
+                return -1;
+            } 
+            if (a.name.toUpperCase()  > b.name.toUpperCase() ) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        return data;
     }
 }

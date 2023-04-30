@@ -5,12 +5,12 @@ import { CreateVehiclesService } from "@modules/vehicles/services/CreateVehicles
 export class CreateVehiclesController {
     async handle(request: Request, response: Response): Promise<Response> {
         const {
-            maximum_km, 
-            maximum_weight, 
-            minimum_km, 
-            minimum_weight, 
             name, 
-            price_per_km
+            price_per_km,
+            minimum_km, 
+            maximum_km, 
+            minimum_weight, 
+            maximum_weight, 
         } = request.body;
 
         const createVehiclesService = container.resolve(CreateVehiclesService);

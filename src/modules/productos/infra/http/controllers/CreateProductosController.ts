@@ -10,7 +10,7 @@ export class CreateProductosController {
             sale_value, 
             weight
         } = request.body;
-
+        
         const createProductosService = container.resolve(CreateProductosService);
 
         await createProductosService.execute({
