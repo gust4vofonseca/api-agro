@@ -8,3 +8,58 @@ status: 500
 module: default
 message: {"query":"INSERT INTO \"public\".\"productos\"(\"id\", \"name\", \"weight\", \"cost_value\", \"sale_value\", \"created_at\", \"updated_at\") VALUES ($1, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT) RETURNING \"created_at\", \"updated_at\"","parameters":["096ca75b-cc60-4f47-950c-3a891a5ffc41"],"driverError":{"length":310,"name":"error","severity":"ERROR","code":"23502","detail":"Failing row contains (096ca75b-cc60-4f47-950c-3a891a5ffc41, null, null, null, null, 2023-04-30 19:17:23.208415, 2023-04-30 19:17:23.208415).","schema":"public","table":"productos","column":"name","file":"execMain.c","line":"1968","routine":"ExecConstraints"},"length":310,"severity":"ERROR","code":"23502","detail":"Failing row contains (096ca75b-cc60-4f47-950c-3a891a5ffc41, null, null, null, null, 2023-04-30 19:17:23.208415, 2023-04-30 19:17:23.208415).","schema":"public","table":"productos","column":"name","file":"execMain.c","line":"1968","routine":"ExecConstraints"}
 
+time: 18:01:01.839Z
+status: 500
+module: default
+message: {}
+
+time: 18:01:54.883Z
+status: 500
+module: default
+message: {}
+
+time: 18:18:46.403Z
+status: 500
+module: default
+message: {}
+
+time: 18:19:02.772Z
+status: 500
+module: default
+message: {}
+
+time: 18:19:08.332Z
+status: 500
+module: default
+message: {}
+
+time: 18:19:14.783Z
+status: 500
+module: default
+message: {}
+
+time: 18:19:18.951Z
+status: 500
+module: default
+message: {}
+
+time: 19:52:04.808Z
+status: 500
+module: default
+message: {}
+
+time: 19:52:20.098Z
+status: 500
+module: default
+message: {}
+
+time: 19:53:12.998Z
+status: 500
+module: default
+message: {}
+
+time: 19:55:04.603Z
+status: 500
+module: default
+message: {}
+

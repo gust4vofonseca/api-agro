@@ -4,16 +4,23 @@ import { container } from "tsyringe";
 
 export class DeleteUserController {
     async handle(request: Request, response: Response): Promise<Response> {
-        const {
-            id
-        } = request.params;
+        try {
+            const {
+                id
+            } = request.params;
+    
+            console.log({id})
+    
+            const deleteUserService = container.resolve(DeleteUserService);
+    
+            await deleteUserService.execute(
+                id
+            );
+    
+            return response.send();
+        } catch (error) {
+            console.log({error})
+        }
 
-        const deleteUserService = container.resolve(DeleteUserService);
-
-        await deleteUserService.execute(
-            id
-        );
-
-        return response.send();
     }
 }

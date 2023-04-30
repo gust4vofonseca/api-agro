@@ -1,8 +1,9 @@
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 import { IUserDTO } from "../dtos/IUserDTO";
 import { IUserRepository } from "../infra/repositories/IUserRepository";
 import { hash } from "bcryptjs";
 
+@injectable()
 export class UpdateUserService {
     constructor(
         @inject("UserRepository")
