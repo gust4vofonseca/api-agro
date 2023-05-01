@@ -11,13 +11,12 @@ export class ProductosRepository implements IProductosRepository {
       this.ormRepository = dataSource.getRepository(Productos);
     }
 
-    async create({cost_value, name, sale_value, weight, id}: IProductosDTO): Promise<void> {
+    async create({cost_value, name, sale_value, weight}: IProductosDTO): Promise<void> {
         const productos = this.ormRepository.create({
             cost_value,
             name,
             sale_value,
             weight,
-            id,
         });
 
         await this.ormRepository.save(productos);

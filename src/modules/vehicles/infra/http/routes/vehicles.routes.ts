@@ -4,6 +4,8 @@ import { UpdateVehiclesController } from "../controllers/UpdateCehiclesControlle
 import { DeleteVehiclesController } from "../controllers/DeleteVehiclesController";
 import { ListAllVehiclesController } from "../controllers/ListAllVehiclesController";
 import { FreightController } from "../controllers/FreightController";
+import { ensureAuthenticated } from "@shared/infra/http/middlewares/ensureAuthenticated";
+import { ensureAdmin } from "@shared/infra/http/middlewares/ensureAdmin";
 
 
 const vehiclesRouter = Router();
@@ -16,9 +18,9 @@ const listAllVehiclesController = new ListAllVehiclesController();
 const freightController = new FreightController();
 
 
-vehiclesRouter.post('/create', createVehiclesController.handle);
-vehiclesRouter.post('/update', updateVehiclesController.handle);
-vehiclesRouter.post('/delete/:id', deleteVehiclesController.handle);
+vehiclesRouter.post('/create', ensureAuthenticated, ensureAdmin, createVehiclesController.handle);
+vehiclesRouter.post('/update', ensureAuthenticated, ensureAdmin, updateVehiclesController.handle);
+vehiclesRouter.post('/delete/:id', ensureAuthenticated, ensureAdmin, deleteVehiclesController.handle);
 vehiclesRouter.get('/', listAllVehiclesController.handle);
 vehiclesRouter.post('/freight', freightController.handle);
 

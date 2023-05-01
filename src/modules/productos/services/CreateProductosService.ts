@@ -9,7 +9,6 @@ export class CreateProductosService {
         private productosRepository: IProductosRepository
     ) {}
 
-
     async execute({cost_value, name, sale_value, weight}: IProductosDTO): Promise<void> {
         await this.productosRepository.create({
             cost_value, 
