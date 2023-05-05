@@ -36,13 +36,15 @@ export class AuthenticateUserService {
 
     async execute({ email, password }: IRquest): Promise<IResponse> {
         const user = await this.userRepository.findByEmail(email);
-
+        console.log({user})
         if (!user) {
             return;
             // throw new AppError("Email or password incorrect!");
         }
 
         const passwordMatch = await compare(password, user.password);
+
+        console.log({passwordMatch})
 
         if (!passwordMatch) {
             return;

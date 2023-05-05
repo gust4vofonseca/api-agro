@@ -1,0 +1,70 @@
+time: 15:20:41.709Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:20:41.732Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:21:36.962Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:21:36.965Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:22:43.743Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:22:43.745Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:23:00.351Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:23:00.379Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:23:49.542Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:23:49.543Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:25:54.507Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:25:54.508Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:26:05.969Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+
+time: 15:26:05.973Z
+status: 500
+module: default
+message: {"name":"JsonWebTokenError","message":"jwt malformed"}
+

@@ -3,7 +3,7 @@ import { Sale } from "../typeorm/entities/Sale";
 
 
 export interface ISaleRepository {
-    create(data: ISaleDTO): Promise<void>;
+    create(data: ISaleDTO): Promise<Sale>;
     deleteById(id: string): Promise<void>;
     update(sale: Sale): Promise<void>;
     findById(id: string): Promise<Sale>;

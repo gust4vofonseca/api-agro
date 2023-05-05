@@ -1,5 +1,9 @@
 import { IProductosRepository } from "@modules/productos/infra/repositories/IProductosRepository";
 import { ProductosRepository } from "@modules/productos/infra/typeorm/repositories/ProductosRepository";
+import { ISaleProductRepository } from "@modules/sale/infra/repositories/ISaleProductRepository";
+import { ISaleRepository } from "@modules/sale/infra/repositories/ISaleRepository";
+import { SaleProductRepository } from "@modules/sale/infra/typeorm/repositories/SaleProductRepository";
+import { SaleRepository } from "@modules/sale/infra/typeorm/repositories/SaleRepository";
 import { IUserRepository } from "@modules/users/infra/repositories/IUserRepository";
 import { IUserTokensRepository } from "@modules/users/infra/repositories/IUserTokensRepository";
 import { UserRepository } from "@modules/users/infra/typeorm/repositories/UserRepository";
@@ -27,4 +31,14 @@ container.registerSingleton<IProductosRepository>(
 container.registerSingleton<IVehiclesRepository>(
     'VehiclesRepository',
     VehiclesRepository,
+);
+
+container.registerSingleton<ISaleRepository>(
+    'SaleRepository',
+    SaleRepository,
+);
+
+container.registerSingleton<ISaleProductRepository>(
+    'SaleProductRepository',
+    SaleProductRepository,
 );

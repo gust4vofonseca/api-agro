@@ -17,7 +17,7 @@ const authenticateUserController = new AuthenticateUserController();
 const refreshTokenController = new RefreshTokenController();
 const leistAllUsersController = new ListAllUsersController();
 
-userRouter.post('/create', ensureAuthenticated, ensureAdmin, createUserController.handle);
+userRouter.post('/create', createUserController.handle);
 userRouter.post('/update', ensureAuthenticated, ensureAdmin, updateUserController.handle);
 userRouter.post('/delete/:id', ensureAuthenticated, ensureAdmin, deleteUserController.handle);
 userRouter.post("/sessions", authenticateUserController.handle);

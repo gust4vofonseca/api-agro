@@ -12,7 +12,7 @@ export class SaleRepository implements ISaleRepository {
       this.ormRepository = dataSource.getRepository(Sale);
     }
 
-    async create({freight_value,total_cost_amout, total_sale_value, total_weight, user_id, discount}: ISaleDTO): Promise<void> {
+    async create({freight_value,total_cost_amout, total_sale_value, total_weight, user_id, discount}: ISaleDTO): Promise<Sale> {
         const sale = this.ormRepository.create({
             freight_value,
             total_cost_amout, 
@@ -23,6 +23,8 @@ export class SaleRepository implements ISaleRepository {
         });
 
         await this.ormRepository.save(sale);
+
+        return sale;
     }
 
     async deleteById(id: string): Promise<void> {

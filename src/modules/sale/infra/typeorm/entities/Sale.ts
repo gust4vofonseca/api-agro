@@ -37,6 +37,9 @@ export class Sale {
     @Column({type: "float"})
     discount: number;
 
+    @Column()
+    km: number;
+
     @CreateDateColumn()
     created_at: Date;
 

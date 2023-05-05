@@ -7,4 +7,5 @@ export interface ISaleDTO {
     freight_value: number;
     total_weight: number;
     discount?: number;
+    km: number;
 }
